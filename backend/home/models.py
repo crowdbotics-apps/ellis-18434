@@ -38,3 +38,10 @@ class Event(models.Model):
     dateTime = models.TimeField()
     description = models.TextField()
     location = models.BigIntegerField()
+
+
+class Location(models.Model):
+    "Generated Model"
+    roomName = models.ForeignKey(
+        "home.Event", on_delete=models.CASCADE, related_name="location_roomName",
+    )
