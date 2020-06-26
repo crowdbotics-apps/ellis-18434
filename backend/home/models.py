@@ -37,7 +37,13 @@ class Event(models.Model):
     "Generated Model"
     dateTime = models.TimeField()
     description = models.TextField()
-    location = models.BigIntegerField()
+    location = models.ForeignKey(
+        "home.Location",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="event_location",
+    )
 
 
 class Location(models.Model):
